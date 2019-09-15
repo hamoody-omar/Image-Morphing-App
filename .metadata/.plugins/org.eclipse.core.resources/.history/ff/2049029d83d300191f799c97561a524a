@@ -1,0 +1,172 @@
+package org.oumar.mahamat.morphyfy.resources;
+
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+
+import java.awt.Color;
+import java.awt.image.BufferedImage;
+import java.awt.image.WritableRaster;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+import javax.imageio.ImageIO;
+
+import sun.misc.BASE64Decoder;
+
+
+@Path("/morph")
+public class Morph {
+	
+	@POST
+	public String morphify(String base64Codes ) {
+		
+		String[] imagesCodes = base64Codes.split(";");
+		
+		BufferedImage sImage = convertToImage(imagesCodes[1]);
+		BufferedImage eImage = convertToImage(imagesCodes[2]);
+		
+		int width = sImage.getWidth();
+		int height = sImage.getHeight();
+		
+		
+		List<Integer> sImagePixels = getImagePixels(sImage);
+		List<Integer> eImagePixels = getImagePixels(eImage);
+		
+		int[][] imagesPixels = morph(sImagePixels, eImagePixels,10);
+		
+	
+		for( int i=0; i< imagesPixels.length; i++) {
+			List<Integer> imagePixels = new ArrayList<>();
+			for( int j=0; j<imagesPixels[0].length; j++) {
+				imagePixels.add(imagesPixels[i][j]);
+			}
+			BufferedImage image = pixelsToImage(imagePixels,width, height, 255 );
+		}
+	}
+	
+
+	private BufferedImage convertToImage(String imageCode) {
+		 
+        BufferedImage image = null;
+        byte[] imageBytes;
+        try {
+         
+			BASE64Decoder decoder = new BASE64Decoder();
+            imageBytes = decoder.decodeBuffer(imageCode);
+            ByteArrayInputStream byteArrInputStream = new ByteArrayInputStream(imageBytes);
+            image = ImageIO.read(byteArrInputStream);
+            byteArrInputStream.close();
+        } catch (Exception e) {
+            return null;    
+        }
+        return image;
+    }
+	
+	private List<Integer> getImagePixels(BufferedImage image){
+		int width = image.getWidth();
+	    int height = image.getHeight();
+	    
+	    List<Integer> imagePixels = new ArrayList<>(height*width);
+	    
+	    for (int row = 0; row < height; row++) {
+		   for (int col = 0; col < width; col++) {
+			   Color color = new Color(image.getRGB(col, row));
+			   imagePixels.add(color.getRed());
+			   imagePixels.add(color.getGreen());
+			   imagePixels.add(color.getBlue());
+		   }
+		}
+	    return imagePixels;
+	}
+	
+	private void morphing(int[][] imagesPixels, int f, int l, HashMap<Integer, Integer> map ) {
+		
+		if (f<l) {
+			
+			int mid;
+			if ((f+l)%2 == 0)
+				mid = (f+l)/2;
+			else
+				mid = (f+l)/2+1;
+			if (map.containsKey(mid))
+				return;
+			map.put(mid, mid);
+			int midPixel;
+			for (int i = 0; i < imagesPixels[0].length; i++) {	 
+				midPixel = (imagesPixels[f][i] + imagesPixels[l][i])/2;
+				imagesPixels[mid][i] = midPixel;
+			 }
+			morphing(imagesPixels, f, mid, map);
+			morphing(imagesPixels, mid, l, map);	
+		}
+		
+	}
+	
+	private int[][] morph(List<Integer> sImagePixels, List<Integer> eImagePixels, int sequences){
+		
+	    int[][] imagesPixels = new int[sequences+2][sImagePixels.size()];
+
+	    for (int i = 0; i < sImagePixels.size(); i++) {  
+	    	imagesPixels[0][i] = sImagePixels.get(i);
+	    	imagesPixels[sequences+1][i] = eImagePixels.get(i);
+	    }
+
+		HashMap<Integer, Integer> map = new HashMap<>();
+		map.put(0, 0);
+		map.put(sequences+1, sequences+1);
+		
+		morphing(imagesPixels, 0, sequences+1, map);
+		
+		return imagesPixels;
+		
+	}
+	
+	private BufferedImage pixelsToImage(List<Integer> data, int width, int height, int maxcolval) {
+		if(maxcolval<256){
+            BufferedImage image=new BufferedImage(width,height,BufferedImage.TYPE_INT_RGB);
+            int r,g,b,k=0,pixel;
+            if(maxcolval==255){                                      
+                for(int y=0;y<height;y++){
+                    for(int x=0;(x<width)&&((k+3)<data.size());x++){
+                        r=data.get(k++) & 0xFF;
+                        g=data.get(k++) & 0xFF;
+                        b=data.get(k++) & 0xFF;
+                        pixel=0xFF000000+(r<<16)+(g<<8)+b;
+                        image.setRGB(x,y,pixel);
+                    }
+                }
+            }
+            else{
+                for(int y=0;y<height;y++){
+                    for(int x=0;(x<width)&&((k+3)<data.size());x++){
+                        r=data.get(k++) & 0xFF;r=((r*255)+(maxcolval>>1))/maxcolval;  
+                        g=data.get(k++) & 0xFF;g=((g*255)+(maxcolval>>1))/maxcolval;
+                        b=data.get(k++) & 0xFF;b=((b*255)+(maxcolval>>1))/maxcolval;
+                        pixel=0xFF000000+(r<<16)+(g<<8)+b;
+                        image.setRGB(x,y,pixel);
+                    }
+                }
+            }
+            return image;
+        }
+        else{
+
+            BufferedImage image=new BufferedImage(width,height,BufferedImage.TYPE_INT_RGB);
+            int r,g,b,k=0,pixel;
+            for(int y=0;y<height;y++){
+                for(int x=0;(x<width)&&((k+6)<data.size());x++){
+                    r=(data.get(k++) & 0xFF)|((data.get(k++) & 0xFF)<<8);r=((r*255)+(maxcolval>>1))/maxcolval; 
+                    g=(data.get(k++) & 0xFF)|((data.get(k++) & 0xFF)<<8);g=((g*255)+(maxcolval>>1))/maxcolval;
+                    b=(data.get(k++) & 0xFF)|((data.get(k++) & 0xFF)<<8);b=((b*255)+(maxcolval>>1))/maxcolval;
+                    pixel=0xFF000000+(r<<16)+(g<<8)+b;
+                    image.setRGB(x,y,pixel);
+                }
+            }
+            return image;
+        }
+	}
+
+}

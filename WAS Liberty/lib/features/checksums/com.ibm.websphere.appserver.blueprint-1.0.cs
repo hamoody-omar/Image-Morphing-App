@@ -1,0 +1,21 @@
+#Tue Jun 19 05:59:13 BST 2018
+lib/com.ibm.ws.eba.proxy.control_1.0.21.jar=f1f4ec07c9c16c4e0ae885babf71f4ea
+dev/api/third-party/com.ibm.websphere.appserver.thirdparty.blueprint_1.2.21.jar=ebe6b3f6078f4da39a710a86f09881fb
+lib/features/com.ibm.websphere.appserver.blueprint-1.0.mf=03f93cf33975f298bf630e5be31e9e17
+lib/com.ibm.ws.org.apache.aries.jndi.api_1.1.21.jar=8f1fe9191f9c1a823e92aaf166953ab9
+lib/com.ibm.ws.org.apache.aries.application.utils.1.0.1_1.1.21.jar=04fcc825f7992393e309c3375f9eac46
+lib/com.ibm.ws.org.apache.aries.application.modeller.1.0.1_1.1.21.jar=ff30f9fc81f3107191d7cb37f2a49ba0
+lib/com.ibm.ws.eba.tx.7.0_1.0.21.jar=fb503191eba83b57081e6511a5ca6cb0
+lib/com.ibm.ws.eba.blueprint.extensions.interceptors.1.0_1.0.21.jar=b056fb4314a2b56a6280e9b48c4c1b29
+dev/api/third-party/com.ibm.websphere.appserver.thirdparty.eba.jndi_1.0.21.jar=380fc0585a7aa8ad84c0e99ccffe591e
+dev/spi/third-party/com.ibm.wsspi.thirdparty.blueprint_1.2.21.jar=552b1988d38da6f051b06f47b5dcebfe
+lib/com.ibm.ws.org.apache.aries.jndi.url.1.1.1_1.1.21.jar=5f3b01997fa34ce006739171e1e6b8d4
+lib/com.ibm.ws.org.apache.aries.application.api.1.0.1_1.1.21.jar=fc38007529a2441fc22624604d69521e
+lib/com.ibm.ws.eba.app.runtime.services_1.0.21.jar=bb21115637ac8f01c5e3d303a4e7a457
+lib/com.ibm.ws.org.apache.aries.blueprint.1.3.0_1.0.21.jar=7d75e94466eaa6f97d1a07a47a9dad1c
+lib/com.ibm.ws.org.apache.aries.application.default.local.platform.1.0.1_1.1.21.jar=6abc5c83771b3f01e6c4cbe734a38d1e
+lib/com.ibm.ws.org.apache.aries.application.resolver.obr.1.0.1_1.1.21.jar=a6e15074dc177482bfd3e983d1665717
+lib/com.ibm.ws.org.apache.aries.proxy.1.1.2_1.1.21.jar=41ad1f529753aee898ff6176e558bd15
+lib/com.ibm.ws.eba.blueprint.transform_1.0.21.jar=97f8bb6a9d17edadda737aa05fcd4a9f
+dev/api/third-party/com.ibm.websphere.appserver.thirdparty.eba.tx_1.0.21.jar=c43bbf49f3c7c3ab18deb2a849e2752d
+dev/api/spec/com.ibm.websphere.org.osgi.service.blueprint_1.0.21.jar=a72cd96994f4cf0239531814afd3389f

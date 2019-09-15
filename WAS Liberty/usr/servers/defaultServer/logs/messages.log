@@ -1,0 +1,36 @@
+********************************************************************************
+product = WebSphere Application Server 18.0.0.2 (wlp-1.0.21.cl180220180619-0403)
+wlp.install.dir = /Users/mahamatoumar/Downloads/untitled folder/Senior Year/Fall/Organization of Programming Langages/Morphyfy/WAS Liberty/
+java.home = /Library/Java/JavaVirtualMachines/jdk1.8.0_191.jdk/Contents/Home/jre
+java.version = 1.8.0_191
+java.runtime = Java(TM) SE Runtime Environment (1.8.0_191-b12)
+os = Mac OS X (10.14.6; x86_64) (en_US)
+process = 86191@Mahamats-MacBook-Pro.local
+********************************************************************************
+[8/21/19 1:14:58:013 EDT] 00000001 com.ibm.ws.kernel.launch.internal.FrameworkManager           A CWWKE0001I: The server defaultServer has been launched.
+[8/21/19 1:14:58:031 EDT] 00000001 com.ibm.ws.kernel.launch.internal.FrameworkManager           A CWWKE0100I: This product is licensed for development, and limited production use. The full license terms can be viewed here: https://public.dhe.ibm.com/ibmdl/export/pub/software/websphere/wasdev/license/base_ilan/ilan/18.0.0.2/lafiles/en.html
+[8/21/19 1:14:59:307 EDT] 00000001 com.ibm.ws.kernel.launch.internal.FrameworkManager           I CWWKE0002I: The kernel started after 1.677 seconds
+[8/21/19 1:14:59:339 EDT] 00000019 com.ibm.ws.kernel.feature.internal.FeatureManager            I CWWKF0007I: Feature update started.
+[8/21/19 1:14:59:955 EDT] 0000001d com.ibm.ws.tcpchannel.internal.TCPChannel                    I CWWKO0219I: TCP Channel defaultHttpEndpoint has been started and is now listening for requests on host localhost  (IPv4: 127.0.0.1) port 9080.
+[8/21/19 1:14:59:964 EDT] 00000012 com.ibm.ws.app.manager.internal.monitor.DropinMonitor        A CWWKZ0058I: Monitoring dropins for applications.
+[8/21/19 1:15:00:439 EDT] 00000023 com.ibm.ws.app.manager.AppMessageHelper                      I CWWKZ0018I: Starting application morphyfy.
+[8/21/19 1:15:01:453 EDT] 00000023 com.ibm.ws.session.WASSessionCore                            I SESN8501I: The session manager did not find a persistent storage location; HttpSession objects will be stored in the local application server's memory.
+[8/21/19 1:15:01:464 EDT] 00000023 com.ibm.ws.webcontainer.osgi.webapp.WebGroup                 I SRVE0169I: Loading Web Module: morphyfy.
+[8/21/19 1:15:01:466 EDT] 00000023 com.ibm.ws.webcontainer                                      I SRVE0250I: Web Module morphyfy has been bound to default_host.
+[8/21/19 1:15:01:467 EDT] 00000023 com.ibm.ws.http.internal.VirtualHostImpl                     A CWWKT0016I: Web application available (default_host): http://localhost:9080/morphyfy/
+[8/21/19 1:15:01:471 EDT] 00000023 com.ibm.ws.app.manager.AppMessageHelper                      A CWWKZ0001I: Application morphyfy started in 1.032 seconds.
+[8/21/19 1:15:01:487 EDT] 00000019 com.ibm.ws.kernel.feature.internal.FeatureManager            A CWWKF0012I: The server installed the following features: [jsp-2.3, servlet-3.1, json-1.0, localConnector-1.0, jaxrs-2.0, el-3.0, jaxrsClient-2.0].
+[8/21/19 1:15:01:488 EDT] 00000019 com.ibm.ws.kernel.feature.internal.FeatureManager            I CWWKF0008I: Feature update completed in 2.181 seconds.
+[8/21/19 1:15:01:488 EDT] 00000019 com.ibm.ws.kernel.feature.internal.FeatureManager            A CWWKF0011I: The server defaultServer is ready to run a smarter planet.
+[8/21/19 1:15:01:915 EDT] 0000002e com.ibm.ws.webcontainer.osgi.mbeans.PluginGenerator          I SRVE9103I: A configuration file for a web server plugin was automatically generated for this server at /Users/mahamatoumar/Downloads/untitled folder/Senior Year/Fall/Organization of Programming Langages/Morphyfy/WAS Liberty/usr/servers/defaultServer/logs/state/plugin-cfg.xml.
+[8/21/19 1:15:02:094 EDT] 0000002d com.ibm.ws.session.WASSessionCore                            I SESN0176I: A new session context will be created for application key default_host/morphyfy
+[8/21/19 1:15:02:123 EDT] 0000002d com.ibm.ws.util                                              I SESN0172I: The session manager is using the Java default SecureRandom implementation for session ID generation.
+[8/21/19 1:15:03:290 EDT] 0000002d com.ibm.ws.webcontainer.servlet                              I SRVE0242I: [morphyfy] [/morphyfy] [Jersey Web Application]: Initialization successful.
+[8/21/19 1:15:20:476 EDT] 00000055 com.ibm.ws.webcontainer.servlet                              I SRVE0242I: [morphyfy] [/morphyfy] [/index.jsp]: Initialization successful.
+[8/23/19 0:18:13:384 EDT] 0000000f com.ibm.ws.kernel.launch.internal.FrameworkManager           A CWWKE0085I: The server defaultServer is stopping because the JVM is exiting.
+[8/23/19 0:18:13:405 EDT] 00012bba com.ibm.ws.runtime.update.internal.RuntimeUpdateManagerImpl  A CWWKE1100I: Waiting for up to 30 seconds for the server to quiesce.
+[8/23/19 0:18:13:418 EDT] 00012bbb com.ibm.ws.tcpchannel.internal.TCPChannel                    I CWWKO0220I: TCP Channel defaultHttpEndpoint has stopped listening for requests on host localhost  (IPv4: 127.0.0.1) port 9080.
+[8/23/19 0:18:13:421 EDT] 00012bbb com.ibm.ws.http.internal.VirtualHostImpl                     A CWWKT0017I: Web application removed (default_host): http://localhost:9080/morphyfy/
+[8/23/19 0:18:13:428 EDT] 00012bba com.ibm.ws.runtime.update.internal.RuntimeUpdateManagerImpl  I CWWKE1101I: Server quiesce complete.
+[8/23/19 0:18:13:500 EDT] 00012b6f com.ibm.ws.app.manager.AppMessageHelper                      A CWWKZ0009I: The application morphyfy has stopped successfully.
+[8/23/19 0:18:13:707 EDT] 00000001 com.ibm.ws.kernel.launch.internal.FrameworkManager           A CWWKE0036I: The server defaultServer stopped after 12 hours, 1 minutes, 45.769 seconds.

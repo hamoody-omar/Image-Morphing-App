@@ -1,0 +1,21 @@
+package org.oumar.mahamat.morphyfy.resources;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class ExampleService {
+	
+	public List<Example> getExamples(){
+		Example x1 = new Example("test1");
+		Example x2 = new Example("test2");
+		Example x3 = new Example("test3");
+		
+		List<Example> l = new ArrayList<>();
+		l.add(x1);
+		l.add(x2);
+		l.add(x3);
+		
+		return l;
+	}
+
+}

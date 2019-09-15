@@ -1,0 +1,31 @@
+/**
+ * 
+ */
+package org.oumar.mahamat.morphyfy.resources;
+
+
+import java.util.List;
+
+import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
+
+/**
+ * @author mahamatoumar
+ *
+ */
+
+@Path("/messages")
+public class MessageResource {
+	
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Example> getMessage() {
+		
+		ExampleService service = new ExampleService();
+		
+		return service.getExamples();
+	}
+	
+	
+
+}

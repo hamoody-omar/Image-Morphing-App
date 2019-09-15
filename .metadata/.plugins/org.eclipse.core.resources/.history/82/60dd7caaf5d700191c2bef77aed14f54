@@ -1,0 +1,26 @@
+package org.oumar.mahamat.morphyfy.resources;
+
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
+public class Example {
+	
+	private String example;
+	
+	public Example() {
+		
+	}
+	public Example(String example) {
+		this.example = example;
+	}
+	
+	public void setExample(String example) {
+		this.example = example;
+	}
+	
+	public String getExample() {
+		
+		return example;
+	}
+
+}

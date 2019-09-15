@@ -1,0 +1,112 @@
+package org.oumar.mahamat.morphyfy.resources;
+
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+
+import java.awt.Color;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.util.HashMap;
+
+import javax.imageio.ImageIO;
+
+import sun.misc.BASE64Decoder;
+
+
+@Path("/morph")
+public class Morph {
+	
+	@POST
+	public String morphify(String base64Codes ) {
+		
+		String[] images = base64Codes.split(";");
+		
+		return images[0];
+	}
+	
+	@SuppressWarnings("restriction")
+	private BufferedImage convertToImage(String imageCode) {
+		 
+        BufferedImage image = null;
+        byte[] imageBytes;
+        try {
+            @SuppressWarnings("restriction")
+			BASE64Decoder decoder = new BASE64Decoder();
+            imageBytes = decoder.decodeBuffer(imageCode);
+            ByteArrayInputStream byteArrInputStream = new ByteArrayInputStream(imageBytes);
+            image = ImageIO.read(byteArrInputStream);
+            byteArrInputStream.close();
+        } catch (Exception e) {
+            return null;
+        }
+        return image;
+    }
+	
+	private int[][][] getImagePixels(BufferedImage image){
+		
+		int[][][] pixels = new int[image.getWidth()][image.getHeight()][3];
+		
+		for(int i=0; i<image.getWidth(); i++) {
+			for(int j=0; j<image.getHeight(); j++) {
+				Color c = new Color(image.getRGB(j, i));
+				pixels[i][j][0] = c.getRed();
+				pixels[i][j][1] = c.getGreen();
+				pixels[i][j][2] = c.getBlue();
+			}
+		}
+		return pixels;		
+	}
+	
+	private void morphing(int[][][][] imagesPixels, int f, int l, HashMap<Integer, Integer> map) {
+		
+		if (f<l) {
+			
+			int mid;
+			if ((f+l)%2 == 0)
+				mid = (f+l)/2;
+			else
+				mid = (f+l)/2+1;
+			if (map.containsKey(mid))
+				return;
+			map.put(mid, mid);
+			System.out.println(mid);
+			int midPixel;
+			for( int r=0; r<imagesPixels[f].length; r++) {
+				for( int c=0; c<imagesPixels[f][0].length; c++) {
+					for(int rgb=0; rgb<3; rgb++) {
+						midPixel = (imagesPixels[f][r][c][rgb] + imagesPixels[l][r][c][rgb])/2;
+						imagesPixels[mid][r][c][rgb] = midPixel;
+					}
+				}
+			}
+			
+			morphing(imagesPixels, f, mid, map);
+			morphing(imagesPixels, mid, l, map);
+			
+		}
+		
+	}
+	
+	private int[][][][] morph(int[][][] sImagePixels, int[][][] eImagePixels, int sequences){
+		
+		int[][][][] imagesPixels = new int[sequences+2][sImagePixels.length][sImagePixels[0].length][3];
+		
+		for( int r=0; r<sImagePixels.length; r++) {
+			for( int c=0; c<sImagePixels[0].length; c++) {
+				for(int rgb=0; rgb<3; rgb++) {
+					imagesPixels[0][r][c][rgb] = sImagePixels[r][c][rgb];
+					imagesPixels[sequences+1][r][c][rgb] = eImagePixels[r][c][rgb];
+				}
+			}
+		}
+		
+		HashMap<Integer, Integer> map = new HashMap<>();
+		map.put(0, 0);
+		map.put(sequences+1, sequences+1);
+		morphing(imagesPixels, 0, sequences+1, map);
+		
+		return imagesPixels;
+		
+	}
+
+}

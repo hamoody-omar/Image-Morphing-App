@@ -1,0 +1,23 @@
+#Tue Aug 20 23:52:47 EDT 2019
+dev/api/third-party/com.ibm.websphere.appserver.thirdparty.openapi.models_1.0.21.jar=ee16e17283fcff8c1b263fc1d7b1d01e
+lib/com.ibm.ws.require.java8_1.0.21.jar=5de0ed4feb1dee14ece005df35bf77da
+dev/api/third-party/com.ibm.websphere.appserver.thirdparty.swagger.annotations_1.1.21.jar=c1dde4b245a2818d0f458e8393c05659
+lib/com.ibm.ws.openapi.ui.private_1.0.21.jar=b30cc8196c3e3b35f1ef64902cd08db2
+lib/com.ibm.ws.openapi.private_1.0.21.jar=004fad867aff080279afcbe307bbb1fe
+dev/api/third-party/com.ibm.websphere.appserver.thirdparty.openapi.annotations_1.0.21.jar=c5536bdd2e42542f715e71ecec2b4568
+dev/spi/ibm/javadoc/com.ibm.websphere.appserver.spi.openapi_1.0-javadoc.zip=84aa829ff3c43e5427f9954859e6657a
+lib/com.ibm.ws.openapi.ui_1.0.21.jar=b5d936ea6199fbdd2badcbd0e341b6ca
+lib/com.ibm.ws.io.swagger.parser_1.0.21.jar=0176faa74ce9eb8f0453bc429a644b86
+lib/com.ibm.ws.io.swagger.core_1.0.21.jar=7287db28aa739776402aa9874a503843
+dev/api/third-party/com.ibm.websphere.appserver.thirdparty.openapi.integration_1.0.21.jar=edcd8d4e6fd37d852d33502b9c0ace56
+lib/com.ibm.ws.openapi.public_1.0.21.jar=a4890adce1efb5cad73eaf46deb16d5e
+lib/com.ibm.ws.openapi.parser_1.0.21.jar=05daef2d06780e466b7fdc979de3b4a3
+lib/features/com.ibm.websphere.appserver.openapi-3.0.mf=18408b825820303800ea94a402ccacee
+lib/com.ibm.ws.org.apache.commons.lang3.3.5_1.0.21.jar=d5e7080ab57edc896885d8209d05372c
+dev/spi/ibm/com.ibm.websphere.appserver.spi.openapi_1.0.21.jar=b9c6224f611fcc33124618fb57f630fa
+lib/com.ibm.websphere.openapi_1.0.21.jar=9179de28d8451f7423201aa46fce24af
+lib/com.ibm.ws.com.fasterxml.jackson.2.9.1_1.0.21.jar=562683115c4822ea3b07ef4befd25da0
+lib/com.ibm.ws.org.apache.commons.io_1.0.21.jar=a348abadcb3c5622007bf6cf06ab4d03
+lib/com.ibm.ws.openapi.core_1.0.21.jar=f6cd85b56b4e66fd98f411af9b27af03
+lib/com.ibm.ws.openapi_1.0.21.jar=bb9a81171d436793ce05cba7d2e7d3d2
+lib/com.ibm.ws.io.swagger.models_1.0.21.jar=725f2243bb75547e3e81617b599cf6f1
